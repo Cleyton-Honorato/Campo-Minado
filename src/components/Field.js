@@ -1,9 +1,9 @@
 import React from 'react'
 import {
     View,
-    Text
+    Text,
+    TouchableWithoutFeedback,
 } from 'react-native'
-import Params from '../params'
 import styles from '../style/style';
 import Mine from './Mine'
 import Flag from './Flag'
@@ -24,20 +24,25 @@ export default props => {
         if (nearMines == 1) color = '#2EFE2E'
         if (nearMines > 1 && nearMines <= 4) color = '#0000FF'
         if (nearMines > 4) color = '#DF0101'
-
     }
     return (
-        <View style={stylesField}>
-            {!mined && opened && nearMines > 0 ?  // se essas tres condições forem verdadeiras exibir o texto 
-                <Text style={[styles.label, { color: color }]}>
-                    {nearMines}</Text> : false}
-            {mined && opened ? <Mine /> : false}
-            {flagged && !opened  ? <Flag /> : false}
 
-        </View>
+        <TouchableWithoutFeedback
+            onPress={props.onOpen}
+            onLongPress={props.onSelect}>
+
+            <View style={stylesField}>
+                {!mined && opened && nearMines > 0 ?  // se essas tres condições forem verdadeiras exibir o texto 
+                    <Text style={[styles.label, { color: color }]}>
+                        {nearMines}</Text> : false}
+                {mined && opened ? <Mine /> : false}
+                {flagged && !opened ? <Flag /> : false}
+
+            </View>
+        </TouchableWithoutFeedback>
     )
 }
 
 // cor se tiver mais de um 4 minas #DF0101 
 // cor se tiver menos de 4 minas  #0000FF
-//cor se tiver mais cinco minas  #BDBDBD
+// cor se tiver mais cinco minas  #BDBDBD

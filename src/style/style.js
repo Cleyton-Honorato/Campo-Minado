@@ -4,9 +4,7 @@ import Params from '../params';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        justifyContent: 'flex-end',
     },
     welcome: {
         fontSize: 20,
@@ -17,6 +15,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#333333',
         marginBottom: 5,
+    },
+    board: {
+        alignItems: 'center',
+        backgroundColor: "#AAA"
     },
 
     //  ############     Estilo Field      ###########
@@ -137,6 +139,8 @@ const styles = StyleSheet.create({
         marginLeft: 8,
         marginTop: 24,
 
-    }
+    }, 
+
+
 })
 export default styles
