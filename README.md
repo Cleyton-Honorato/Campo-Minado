@@ -1,3 +1,3 @@
 # Campo-Minado
 
-Projeto finalizado
+> Projeto finalizado
